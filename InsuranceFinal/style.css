@@ -1,0 +1,869 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root { 
+  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --default-color: #212529; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #32353a; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #5d57f4; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+}
+
+:root {
+  --primary-color: #ff833e;
+  --primary-color-dark: #db6f35;
+  --text-dark: #333333;
+  --text-light: #767268;
+  --white: #ffffff;
+  --max-width: 1200px;
+  --header-font: "Bebas Neue", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: flex;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+nav {
+  position: fixed;
+  isolation: isolate;
+  width: 100%;
+  z-index: 9;
+}
+
+.nav__header {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+}
+
+.nav__logo a {
+  font-size: 1.75rem;
+  font-weight: 400;
+  font-family: var(--header-font);
+  color: var(--white);
+}
+
+.nav__menu__btn {
+  font-size: 1.5rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.nav__links {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: var(--primary-color);
+  transition: 0.5s;
+  z-index: -1;
+  transform: translateY(-100%);
+}
+
+.nav__links.open {
+  transform: translateY(0);
+}
+
+.nav__links a {
+  font-weight: 500;
+  color: var(--white);
+}
+
+.nav__links a:hover {
+  color: var(--text-dark);
+}
+
+.nav__btns {
+  display: none;
+}
+
+.header__container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding-block: 8rem 2rem;
+  padding-inline: 1rem;
+  display: grid;
+  gap: 2rem;
+  overflow-x: hidden;
+}
+
+.header__image {
+  position: relative;
+  isolation: isolate;
+}
+
+.header__image::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  max-width: 550px;
+  aspect-ratio: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("assets/header-bg.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 100%;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.header__image img {
+  max-width: 520px;
+  margin-inline: auto;
+}
+
+.header__image__card {
+  position: absolute;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  background-color: var(--white);
+  white-space: nowrap;
+  border-radius: 5px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.header__image__card span {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.header__image__card-1 {
+  top: 25%;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.header__image__card-2 {
+  top: 10%;
+  right: 2rem;
+  transform: translateY(-50%);
+}
+
+.header__image__card-3 {
+  top: 60%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.header__image__card-4 {
+  top: 70%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.header__content h1 {
+  margin-bottom: 1rem;
+  font-size: 5rem;
+  font-weight: 400;
+  font-family: var(--header-font);
+  color: var(--text-dark);
+  line-height: 5.5rem;
+  text-align: center;
+}
+
+.header__content h1 span {
+  color: var(--primary-color);
+}
+
+.header__content p {
+  margin-bottom: 2rem;
+  columns: var(--text-light);
+  line-height: 1.75rem;
+  text-align: center;
+}
+
+.header__content button {
+  width: 100%;
+  padding: 1rem 2rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  white-space: nowrap;
+  color: var(--white);
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.header__content button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.header__content .bar {
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  text-align: center;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+.wrapper {
+  width: 90%;
+  max-width: 1536px;
+  margin-inline: auto;
+  position: relative;
+  height: 100px;
+  margin-top: 5rem;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0)
+  );
+}
+
+/*--------------------------------------------------------------
+# Ini untuk infinite scroll wheel!
+--------------------------------------------------------------*/
+@keyframes scrollLeft {
+  to {
+    left: -200px;
+  }
+}
+
+.item {
+  background-color: white;
+  border-radius: 6px;
+  position: absolute;
+  left: max(calc(200px * 8), 100%);
+  animation-name: scrollLeft;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.item1 {
+  background-image: url("assets/etiqa1-removebg-preview.png");
+  animation-delay: calc(30s / 8 * (8 - 1) * -1);
+  width: 200px;
+  height: 100px;
+}
+
+.item2 {
+  background-image: url("assets/aia1-removebg-preview.png");
+  animation-delay: calc(30s / 8 * (8 - 2) * -1);
+  width: 200px;
+  height: 85px;
+}
+
+.item3 {
+  background-image: url("assets/allianz1-removebg-preview.png");
+  animation-delay: calc(30s / 8 * (8 - 3) * -1);
+  width: 200px;
+  height: 67px;
+}
+
+.item4 {
+  background-image: url("assets/greateastern1-removebg-preview.png");
+  animation-delay: calc(30s / 8 * (8 - 4) * -1);
+  width: 200px;
+  height: 77px;
+}
+
+.item5 {
+  background-image: url("assets/manulife1-removebg-preview.png");
+  animation-delay: calc(30s / 8 * (8 - 5) * -1);
+  width: 200px;
+  height: 53px;
+}
+
+.item6 {
+  background-image: url("assets/prudential2.jpg");
+  animation-delay: calc(30s / 8 * (8 - 6) * -1);
+  width: 200px;
+  height: 36px;
+}
+
+.item7 {
+  background-image: url("assets/zurich1-removebg-preview.png");
+  animation-delay: calc(30s / 8 * (8 - 7) * -1);
+  width: 200px;
+  height: 53px;
+}
+
+.item8 {
+  background-image: url("assets/rhb1.png");
+  animation-delay: calc(30s / 8 * (8 - 8) * -1);
+  width: 200px;
+  height: 44px;
+}
+
+/*--------------------------------------------------------------
+# Ini untuk Navbar
+--------------------------------------------------------------*/
+@media (width > 768px) {
+  nav {
+    position: static;
+    padding-block: 2rem 0;
+    padding-inline: 1rem;
+    max-width: var(--max-width);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .nav__header {
+    flex: 1;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .nav__logo a {
+    color: var(--text-dark);
+  }
+
+  .nav__logo a span {
+    color: var(--primary-color);
+  }
+
+  .nav__menu__btn {
+    display: none;
+  }
+
+  .nav__links {
+    position: static;
+    padding: 0;
+    flex-direction: row;
+    background-color: transparent;
+    transform: none;
+  }
+
+  .nav__links a {
+    padding-block: 5px;
+    color: var(--text-dark);
+    border-bottom: 4px solid transparent;
+  }
+
+  .nav__links a:hover {
+    border-color: var(--primary-color);
+  }
+
+  .nav__btns {
+    display: flex;
+    flex: 1;
+  }
+
+  .nav__btns .btn {
+    padding: 0.75rem 1.5rem;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    white-space: nowrap;
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+
+  .sign__up {
+    color: var(--text-dark);
+    background-color: transparent;
+  }
+
+  .sign__up:hover {
+    color: var(--primary-color);
+  }
+
+  .sign__in {
+    color: var(--white);
+    background-color: var(--primary-color);
+  }
+
+  .sign__in:hover {
+    background-color: var(--primary-color-dark);
+  }
+
+  .header__container {
+    padding-block: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .header__image {
+    grid-area: 1/2/2/3;
+  }
+
+  .header__content :is(h1, p, .bar) {
+    text-align: left;
+  }
+  
+}
+
+@media (width > 1024px) {
+  .header__content form {
+    flex-direction: row;
+  }
+}
+
+/*--------------------------------------------------------------
+# Ini untuk Pricing cards
+--------------------------------------------------------------*/
+
+.pricing {
+  padding-bottom: 8rem;
+}
+
+.pricing .pricing-card {
+  height: 100%;
+  padding: 2rem;
+  background: var(--surface-color);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.pricing .pricing-card.popular {
+  background: var(--primary-color);
+  color: var(--contrast-color);
+}
+
+.pricing .pricing-card.popular h3,
+.pricing .pricing-card.popular h4 {
+  color: var(--contrast-color);
+}
+
+.pricing .pricing-card.popular .price .currency,
+.pricing .pricing-card.popular .price .amount,
+.pricing .pricing-card.popular .price .period {
+  color: var(--contrast-color);
+}
+
+.pricing .pricing-card.popular .features-list li {
+  color: var(--contrast-color);
+}
+
+.pricing .pricing-card.popular .features-list li i {
+  color: var(--contrast-color);
+}
+
+.pricing .pricing-card.popular .btn-light {
+  background: var(--contrast-color);
+  color: var(--primary-color-dark);
+}
+
+.pricing .pricing-card.popular .btn-light:hover {
+  background: color-mix(in srgb, var(--contrast-color), transparent 10%);
+}
+
+.pricing .pricing-card .popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--contrast-color);
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.pricing .pricing-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.pricing .pricing-card .price {
+  margin-bottom: 1.5rem;
+}
+
+.pricing .pricing-card .price .currency {
+  font-size: 1.5rem;
+  font-weight: 600;
+  vertical-align: top;
+  line-height: 1;
+}
+
+.pricing .pricing-card .price .amount {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.pricing .pricing-card .price .period {
+  font-size: 1rem;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+.pricing .pricing-card .description {
+  margin-bottom: 2rem;
+  font-size: 0.975rem;
+}
+
+.pricing .pricing-card h4 {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.pricing .pricing-card .features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.pricing .pricing-card .features-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.pricing .pricing-card .features-list li i {
+  color: var(--primary-color);
+  margin-right: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.pricing .pricing-card .btn {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.pricing .pricing-card .btn.btn-primary {
+  background: var(--primary-color);
+  border: none;
+  color: var(--contrast-color);
+}
+
+.pricing .pricing-card .btn.btn-primary:hover {
+  background: color-mix(in srgb, var(--primary-color), transparent 15%);
+}
+
+.bg-soft-custom {
+  background-color: #f4f4f9;
+}
+
+/*--------------------------------------------------------------
+# Ini untuk H2 Section pricing dengan font / underline
+--------------------------------------------------------------*/
+.section-title {
+  text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.section-title h2:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 160px;
+  height: 1px;
+  background: color-mix(in srgb, var(--default-color), transparent 60%);
+  left: 0;
+  right: 0;
+  bottom: 1px;
+  margin: auto;
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--accent-color);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# How We Work Section
+--------------------------------------------------------------*/
+.how-we-work {
+  padding-bottom: 7rem;
+}
+
+.how-we-work .process-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.how-we-work .process-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-bottom: 2.5rem;
+}
+
+.how-we-work .process-item:last-child {
+  padding-bottom: 0;
+}
+
+.how-we-work .process-item .content {
+  width: 100%;
+  position: relative;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--primary-color), transparent 95%), var(--surface-color));
+  border: 2px solid color-mix(in srgb, var(--primary-color), transparent 85%);
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.how-we-work .process-item .content:hover {
+  transform: translateX(10px);
+  box-shadow: -8px 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.how-we-work .process-item .content:hover .step-icon {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--primary-color), transparent 15%), var(--primary-color));
+  transform: rotate(10deg);
+}
+
+.how-we-work .process-item .content:hover .step-number {
+  transform: translateX(-5px);
+  opacity: 1;
+}
+
+.how-we-work .process-item .step-number {
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  line-height: 1;
+  opacity: 0.2;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.how-we-work .process-item .card-body {
+  padding: 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.how-we-work .process-item .step-icon {
+  flex-shrink: 0;
+  width: 70px;
+  height: 70px;
+  background-color: var(--primary-color);
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px color-mix(in srgb, var(--primary-color), transparent 70%);
+}
+
+.how-we-work .process-item .step-icon i {
+  font-size: 2rem;
+  color: var(--contrast-color);
+}
+
+.how-we-work .process-item .step-content h3 {
+  color: var(--heading-color);
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.how-we-work .process-item .step-content p {
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.how-we-work .process-item .arrow {
+  color: color-mix(in srgb, var(--primary-color), transparent 50%);
+  margin: 1rem 0;
+  width: 100px;
+  height: 100px;
+  opacity: 0.7;
+}
+
+/*--------------------------------------------------------------
+# About Section
+--------------------------------------------------------------*/
+.about {
+  padding-bottom: 7rem;
+}
+
+.about .content .who-we-are {
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  color: color-mix(in srgb, var(--primary-color), transparent 40%);
+}
+
+.about .content h3 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.about .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about .content ul li {
+  padding-bottom: 10px;
+}
+
+.about .content ul i {
+  font-size: 1.25rem;
+  margin-right: 4px;
+  color: var(--primary-color);
+}
+
+.about .content p:last-child {
+  margin-bottom: 0;
+}
+
+.about .content .read-more {
+  background: var(--primary-color);
+  color: var(--contrast-color);
+  font-family: var(--heading-font);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 12px 24px;
+  border-radius: 5px;
+  transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about .content .read-more i {
+  font-size: 18px;
+  margin-left: 5px;
+  line-height: 0;
+  transition: 0.3s;
+}
+
+.about .content .read-more:hover {
+  background: color-mix(in srgb, var(--primary-color), transparent 20%);
+  padding-right: 19px;
+}
+
+.about .content .read-more:hover i {
+  margin-left: 10px;
+}
+
+.about .about-images img {
+  border-radius: 10px;
+}
+
+/*--------------------------------------------------------------
+# Contact Section
+--------------------------------------------------------------*/
+.contact .info-card {
+  background-color: var(--surface-color);
+  padding: 30px;
+  text-align: center;
+  height: 100%;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  transition: all 0.3s ease-in-out;
+}
+
+.contact .info-card:hover {
+  transform: translateY(-5px);
+}
+
+.contact .info-card .icon-box {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: color-mix(in srgb, var(--primary-color), transparent 92%);
+}
+
+.contact .info-card .icon-box i {
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+.contact .info-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.contact .info-card p {
+  margin: 0;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  font-size: 15px;
+  line-height: 1.6;
+}
